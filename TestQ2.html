@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <style>
+            fieldset
+            {
+                width: 500px;
+                margin-top: 50px;
+                padding-top: 0px;
+                padding-right : 70px;
+                padding-bottom : 70px;
+                padding-left : 70px; 
+                box-shadow: 3px 3px 2px 5px rgb(206, 159, 201); 
+                border-color: aliceblue; 
+                box-sizing: content-box;
+            }
+            #f1
+            {
+                margin-bottom: 50px;
+            }
+    
+        </style>
+        <script>
+            function validate()
+            {
+                
+                var empId=document.getElementById("empId").value;
+                var designation=document.getElementById("desgn").value;
+                //var empName=document.getElementById("empName").value;
+                //var empAddress=document.getElementById("empAddress").value;
+                var loanAmmt=document.getElementById("loanAmmt").value;
+                //var loanTakenDate=document.getElementById("loanTakenDate").value;
+                var interest=document.getElementById("interest").value;
+                //var MaurityDate=document.getElementById("MaurityDate").value;
+
+                if(empId.charAt(0)=='E' && empId.length>4)
+                {
+                    let res=window.confirm("Do you want to display the information ? ");
+
+                    alert(empId+" : "+designation)
+
+                     if(designation=="MD")
+                    {
+                        document.getElementById("msg").innerHTML="<br><br><br><font color='green'><center><h2>Welcome : " + empId +"</h2></center></font>" ;    
+                    }
+                    else if(designation=="CEO")
+                    {
+                        document.getElementById("msg").innerHTML="<br><br><br><font color='Deeppink'><center><h2>Welcome : " + empId +"</h2></center></font>" ;
+                    }
+                    else if(designation=="Chairman")
+                    {
+                        document.getElementById("msg").innerHTML="<br><br><br><font color='Deeppink'><center><h2>Welcome : " + empId +"</h2></center></font>" ;   
+                    }
+                    else if(designation=="CFO")
+                    {
+                        document.getElementById("msg").innerHTML="<br><br><br><font color='Deeppink'><center><h2>Welcome : " + empId +"</h2></center></font>" ;
+                    }
+
+                    document.getElementById("f1").innerHTML="<h3>Loan Ammount : " + loanAmmt +"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+"Payable Interest : " + interest +"%"+"</h3><br>" ;               
+                }
+                else
+                {
+                    document.getElementById("msg").innerHTML="<br><br><br><font color='red'><center><h2>Invalid Employee id... Try again"+"</h2></center></font>" ;                    
+                }
+
+                
+            }
+        </script>
+    </head>
+    <body>
+        <p id="msg"></p>
+        
+
+        <center>
+            <fieldset >
+                <legend><b>Employee Information</b></legend>
+                <forms>
+                    <table>
+                        <tr>
+                            <td>Employee Id </td> 
+                            <td><input type="text" id="empId" minlength="4" placeholder="Enter Employee Id : "></td><br>
+                        </tr>
+                        <tr>
+                            <td>Employee Name </td> 
+                            <td><input type="text" id="empName" placeholder="Enter employee name "></td><br>
+                        </tr>
+                        <tr>
+                            <td>Address </td> 
+                            <td><input type="text" id="empAddress" placeholder="Enter Address "></td><br>
+                        </tr>
+                        <tr>
+                            <td>Select Designation</td> 
+                            <td>  
+                                <select id="desgn">  
+                                <option value = "MD"> MD   
+                                </option>  
+                                <option value = "Chairman"> Chairman   
+                                </option>  
+                                <option value = "CEO"> CEO  
+                                </option>  
+                                <option value = "CFO"> CFO  
+                                </option>  
+                                </select></td><br>
+                        </tr>
+                        <tr>
+                            <td>Loan Ammount </td> 
+                            <td><input type="number" id="loanAmmt" placeholder="Enter Loan Ammount "></td><br>
+                        </tr>
+                        <tr>
+                            <td>Date of Loan Taken </td> 
+                            <td><input type="date" id="loanTakenDate"></td><br>
+                        </tr>
+                        <tr>
+                            <td>Interest </td> 
+                            <td><input type="number" id="interest"></td><br>
+                        </tr>
+                        <tr>
+                            <td>Maturity Date </td> 
+                            <td><input type="date" id="MaurityDate"></td><br><br>
+                        </tr>
+                        <tr> 
+                            <td colspan="2" align="center"><input type="button" value="Submit" style="color: white; background-color: green; border-radius: 7px;" onclick="validate();"></td><br>
+                        </tr>
+                    </table>
+                </forms>
+            </fieldset>
+            <fieldset id="f1">
+                <legend style="color:maroon; border-color:lightgoldenrodyellow;"><b>Loan Information</b></legend>
+            </fieldset>
+        </center>
+    </body>
+</html>
